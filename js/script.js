@@ -6,7 +6,7 @@ const bancoCategorias = JSON.parse(localStorage.getItem('categorias')) || []
 const btnCriar = document.querySelectorAll('.btn-criar')
 const areaCategorias = document.querySelector('#area-categorias .categorias')
 const telaAdicionar = document.querySelector('#tela-adicionar')
-const cards = document.querySelector('#cards .cards')
+const cards = document.querySelector('#cards')
 const btnLimpar = document.querySelector('.btn-limpar')
 
 // ---------- eventos ---------- \\
@@ -21,6 +21,15 @@ btnCriar.forEach(btn => {
 // oculta a tela de adicionar card ao clicar fora da tela
 telaAdicionar.addEventListener('click', e => {
     e.target === telaAdicionar && telaAdicionar.classList.remove('show')
+})
+
+// filtra por categorias
+
+areaCategorias.addEventListener('click', e => {
+    if (e.target.closest('.categoria')) {
+        const idCategoria = Number(e.target.getAttribute('idcategoria'))
+        carregarCards(idCategoria)
+    }
 })
 
 // se estiver sem dados pode clicar no botão para importar exemplos
@@ -54,10 +63,17 @@ async function carregarPagina() {
     areaCategorias.innerHTML = ''
     bancoCategorias.forEach(categoria => {
         areaCategorias.innerHTML += `
-        <div class="categoria"
+        <div idcategoria="${categoria.id}" class="categoria"
         style="background: ${categoria.cor}">${categoria.nome}</div>
         `
     })
+
+    // carrega cards
+    carregarCards()
+
+}
+
+function carregarCards(categoria = 0) {
 
     if (!bancoOfertas.length) {
         cards.innerHTML = `
@@ -66,18 +82,13 @@ async function carregarPagina() {
         return
     }
 
-    // carrega cards
-    carregarCards()
-
-}
-
-function carregarCards() {
+    const ofertasTemp = categoria ? bancoOfertas.filter(oferta => oferta.categoria === categoria) : bancoOfertas
     cards.innerHTML = ''
-    bancoOfertas.forEach(oferta => {
+    ofertasTemp.forEach(oferta => {
 
         const tag = oferta.tipo ? 'procurando' : 'oferecendo'
         const tagTexto = oferta.tipo ? '🔍 Procurando' : '🛠️ Oferecendo'
-        const categoria = retornaCategoria(oferta.id)
+        const categoria = retornaCategoria(oferta.categoria)
         // const classCategoria =
         cards.innerHTML += `
             <div class="card">
@@ -85,7 +96,7 @@ function carregarCards() {
                     <div class="tag ${tag}">
                     ${tagTexto}
                     </div>
-                    <div class="categoria cat-${categoria.slug}">${categoria.nome}</div>
+                    <div class="categoria" style="background: ${categoria.cor}">${categoria.nome}</div>
                 </div>
                 <div class="informacao">
                     <p class="titulo">${oferta.titulo}</p>

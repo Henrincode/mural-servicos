@@ -1,5 +1,11 @@
 [
   {
+    "id": 0,
+    "slug": "tudo",
+    "nome": "Tudo",
+    "cor": "#374151"
+  },
+  {
     "id": 1,
     "slug": "servicos-profissionais",
     "nome": "Serviços Profissionais",
@@ -9,7 +15,7 @@
     "id": 2,
     "slug": "arte-criatividade",
     "nome": "Arte e Criatividade",
-    "cor": "#7C3AED"
+    "cor": "#c55df6"
   },
   {
     "id": 3,
@@ -21,13 +27,13 @@
     "id": 4,
     "slug": "educacao-aulas",
     "nome": "Educação e Aulas",
-    "cor": "#059669"
+    "cor": "#047857"
   },
   {
     "id": 5,
     "slug": "servicos-gerais",
     "nome": "Serviços Gerais",
-    "cor": "#374151"
+    "cor": "red"
   },
   {
     "id": 6,
@@ -57,6 +63,6 @@
     "id": 10,
     "slug": "parcerias-trocas",
     "nome": "Parcerias e Trocas",
-    "cor": "#047857"
+    "cor": "#914600"
   }
 ]

@@ -88,5 +88,185 @@
     "contato": "telefone (11) 92345-9988",
     "titulo": "Troco serviços de edição de vídeo por aulas de espanhol",
     "descricao": "Sou editor de vídeos e gostaria de trocar meu trabalho por conversas semanais em espanhol."
+  },
+  {
+    "id": 11,
+    "tipo": 0,
+    "categoria": 1,
+    "criador": "Felipe Andrade",
+    "contato": "email felipe.devweb@gmail.com",
+    "titulo": "Criação de landing pages",
+    "descricao": "Especialista em páginas otimizadas para conversão com foco em performance e design moderno."
+  },
+  {
+    "id": 12,
+    "tipo": 1,
+    "categoria": 2,
+    "criador": "Mariana Torres",
+    "contato": "insta @mari_torres_art",
+    "titulo": "Preciso de designer para identidade visual",
+    "descricao": "Busco profissional para criar logo e identidade visual para minha loja de cosméticos."
+  },
+  {
+    "id": 13,
+    "tipo": 0,
+    "categoria": 3,
+    "criador": "Fernanda Lima",
+    "contato": "whatsapp (11) 98876-5432",
+    "titulo": "Comida congelada fitness",
+    "descricao": "Pratos saudáveis, caseiros e balanceados, entregues semanalmente em SP."
+  },
+  {
+    "id": 14,
+    "tipo": 1,
+    "categoria": 4,
+    "criador": "Bruno Ferreira",
+    "contato": "email brunof.consultas@gmail.com",
+    "titulo": "Aulas de francês particulares",
+    "descricao": "Busco alguém com fluência para aulas online 2x por semana."
+  },
+  {
+    "id": 15,
+    "tipo": 0,
+    "categoria": 5,
+    "criador": "Sérgio Oliveira",
+    "contato": "telefone (11) 91234-8899",
+    "titulo": "Serviços de pintura residencial",
+    "descricao": "Experiência em pintura interna e externa, aplicação de textura e grafiato."
+  },
+  {
+    "id": 16,
+    "tipo": 1,
+    "categoria": 6,
+    "criador": "Tatiane Barbosa",
+    "contato": "insta @tatibarber",
+    "titulo": "Procuro cabeleireira especialista em loiro",
+    "descricao": "Preciso retocar mechas e hidratar o cabelo, preferência por atendimento em domicílio."
+  },
+  {
+    "id": 17,
+    "tipo": 0,
+    "categoria": 7,
+    "criador": "Camila Rocha",
+    "contato": "whatsapp (11) 97777-4444",
+    "titulo": "Brechó online feminino",
+    "descricao": "Roupas seminovas de marca, preços acessíveis e envio para todo Brasil."
+  },
+  {
+    "id": 18,
+    "tipo": 1,
+    "categoria": 8,
+    "criador": "Douglas Nascimento",
+    "contato": "telefone (11) 98888-1111",
+    "titulo": "Procuro cuidador para gato idoso",
+    "descricao": "Preciso de alguém com paciência e experiência com gatos para cuidar durante viagens."
+  },
+  {
+    "id": 19,
+    "tipo": 0,
+    "categoria": 9,
+    "criador": "Alessandra Martins",
+    "contato": "email ale.techstartup@gmail.com",
+    "titulo": "Mentoria para startups",
+    "descricao": "Ajudo empreendedores a estruturarem ideias e validarem seus projetos com foco em tecnologia."
+  },
+  {
+    "id": 20,
+    "tipo": 0,
+    "categoria": 10,
+    "criador": "Gabriel Henrique",
+    "contato": "insta @gabriel.edit",
+    "titulo": "Edição de vídeos para redes sociais",
+    "descricao": "Shorts, reels, vídeos para YouTube com corte dinâmico e identidade personalizada."
+  },
+  {
+    "id": 21,
+    "tipo": 1,
+    "categoria": 3,
+    "criador": "Lúcia Freitas",
+    "contato": "telefone (11) 94444-7890",
+    "titulo": "Procuro fornecedora de salgados para eventos",
+    "descricao": "Preciso de coxinhas, quibes e outros salgados assados e fritos para festa de aniversário."
+  },
+  {
+    "id": 22,
+    "tipo": 0,
+    "categoria": 2,
+    "criador": "João Pedro",
+    "contato": "email jp.artedigital@gmail.com",
+    "titulo": "Criação de caricaturas digitais",
+    "descricao": "Arte personalizada para presentes e redes sociais. Envio por e-mail em alta resolução."
+  },
+  {
+    "id": 23,
+    "tipo": 1,
+    "categoria": 6,
+    "criador": "Raquel Souza",
+    "contato": "insta @raquelhair",
+    "titulo": "Preciso de depiladora a domicílio",
+    "descricao": "Busco profissional com experiência para depilação completa em casa, na zona sul de SP."
+  },
+  {
+    "id": 24,
+    "tipo": 0,
+    "categoria": 4,
+    "criador": "Igor Tavares",
+    "contato": "email igoringlesfluente@gmail.com",
+    "titulo": "Aulas de inglês com foco em conversação",
+    "descricao": "Material próprio, aulas descontraídas e resultados rápidos."
+  },
+  {
+    "id": 25,
+    "tipo": 1,
+    "categoria": 1,
+    "criador": "Vanessa Campos",
+    "contato": "telefone (11) 98888-2222",
+    "titulo": "Procuro desenvolvedor para e-commerce",
+    "descricao": "Preciso montar loja online com integração de pagamentos e sistema de estoque simples."
+  },
+  {
+    "id": 26,
+    "tipo": 0,
+    "categoria": 5,
+    "criador": "Gustavo Santana",
+    "contato": "whatsapp (11) 96543-2100",
+    "titulo": "Serviços elétricos e manutenção",
+    "descricao": "Troca de tomadas, disjuntores, fiação e manutenção residencial em geral."
+  },
+  {
+    "id": 27,
+    "tipo": 0,
+    "categoria": 7,
+    "criador": "Elaine Dias",
+    "contato": "insta @modarustica.elaine",
+    "titulo": "Confecção de roupas sob medida",
+    "descricao": "Especializada em vestidos e roupas femininas com estilo rústico e boho chic."
+  },
+  {
+    "id": 28,
+    "tipo": 1,
+    "categoria": 10,
+    "criador": "André Luiz",
+    "contato": "email andreluizvideo@gmail.com",
+    "titulo": "Preciso de designer de motion para intro",
+    "descricao": "Quero criar uma vinheta animada para meu canal no YouTube."
+  },
+  {
+    "id": 29,
+    "tipo": 0,
+    "categoria": 8,
+    "criador": "Patrícia Teixeira",
+    "contato": "telefone (11) 90012-3344",
+    "titulo": "Banho e tosa em domicílio",
+    "descricao": "Atendimento personalizado para cães e gatos. Produtos de qualidade e muito carinho."
+  },
+  {
+    "id": 30,
+    "tipo": 1,
+    "categoria": 9,
+    "criador": "Thiago Monteiro",
+    "contato": "insta @thimont.dev",
+    "titulo": "Busco programador backend para projeto em Node.js",
+    "descricao": "Preciso de parceiro para construir a API de um projeto educacional."
   }
 ]
