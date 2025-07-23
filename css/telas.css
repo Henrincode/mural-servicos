@@ -1,0 +1,27 @@
+#tela-adicionar {
+  z-index: 999;
+  position: fixed;
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(71, 71, 71, 0.7);
+  backdrop-filter: blur(10px);
+  transition: 400ms;
+}
+
+#tela-adicionar.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+#tela-adicionar .tela {
+  width: 400px;
+  height: 700px;
+  border-radius: 10px;
+  background-color: aliceblue;
+}
