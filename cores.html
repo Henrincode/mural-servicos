@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cores do site</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 100px;
+            height: 100vh;
+        }
+
+        .logo {
+            width: 300px;
+        }
+
+        .cores {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 100px;
+        }
+
+        .cor1, .cor2 {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            font-family: "Verdana";
+        }
+        .cor1 {
+            width: 400px;
+            height: 400px;
+
+            border-radius: 20px;
+            background-color: #f7941d;
+        }
+        
+        .cor2 {
+            width: 400px;
+            height: 400px;
+            border-radius: 20px;
+            background-color: #004a8d;
+        }
+    </style>
+</head>
+<body>
+    <img class="logo" src="./img/logos/logo.svg" alt="logo">
+    <div class="cores">
+        <div class="cor1">#F7941D</div>
+        <div class="cor2">#004A8D</div>
+    </div>
+    
+</body>
+</html>
