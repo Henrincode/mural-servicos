@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "slug": "servicos-profissionais",
+    "nome": "Serviços Profissionais",
+    "cor": "#1E3A8A"
+  },
+  {
+    "id": 2,
+    "slug": "arte-criatividade",
+    "nome": "Arte e Criatividade",
+    "cor": "#7C3AED"
+  },
+  {
+    "id": 3,
+    "slug": "alimentos-bebidas",
+    "nome": "Alimentos e Bebidas",
+    "cor": "#EA580C"
+  },
+  {
+    "id": 4,
+    "slug": "educacao-aulas",
+    "nome": "Educação e Aulas",
+    "cor": "#059669"
+  },
+  {
+    "id": 5,
+    "slug": "servicos-gerais",
+    "nome": "Serviços Gerais",
+    "cor": "#374151"
+  },
+  {
+    "id": 6,
+    "slug": "beleza-bemestar",
+    "nome": "Beleza e Bem-estar",
+    "cor": "#DB2777"
+  },
+  {
+    "id": 7,
+    "slug": "vendas-produtos",
+    "nome": "Vendas e Produtos",
+    "cor": "#B45309"
+  },
+  {
+    "id": 8,
+    "slug": "pets",
+    "nome": "Pets",
+    "cor": "#0EA5E9"
+  },
+  {
+    "id": 9,
+    "slug": "projetos-inovacao",
+    "nome": "Projetos e Inovação",
+    "cor": "#6D28D9"
+  },
+  {
+    "id": 10,
+    "slug": "parcerias-trocas",
+    "nome": "Parcerias e Trocas",
+    "cor": "#047857"
+  }
+]

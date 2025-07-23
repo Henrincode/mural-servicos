@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "tipo": 0,
+    "categoria": 1,
+    "criador": "João Silva",
+    "contato": "insta @joaosilva1992",
+    "titulo": "Faço websites profissionais",
+    "descricao": "Desenvolvo sites responsivos, rápidos e modernos para empresas ou portfólios pessoais."
+  },
+  {
+    "id": 2,
+    "tipo": 1,
+    "categoria": 5,
+    "criador": "Ana Paula",
+    "contato": "whatsapp (11) 91234-5678",
+    "titulo": "Procuro pintor para quarto",
+    "descricao": "Estou buscando um profissional para pintar um quarto pequeno, com acabamento simples."
+  },
+  {
+    "id": 3,
+    "tipo": 0,
+    "categoria": 3,
+    "criador": "Carlos Mendes",
+    "contato": "telefone (11) 99888-7766",
+    "titulo": "Vendo doces caseiros",
+    "descricao": "Brigadeiros, bolos e sobremesas artesanais para festas e encomendas."
+  },
+  {
+    "id": 4,
+    "tipo": 1,
+    "categoria": 4,
+    "criador": "Beatriz Santos",
+    "contato": "email beatrizs@gmail.com",
+    "titulo": "Preciso de aulas de inglês",
+    "descricao": "Quero reforçar conversação em inglês para uma entrevista de emprego próxima."
+  },
+  {
+    "id": 5,
+    "tipo": 0,
+    "categoria": 6,
+    "criador": "Luciana Rocha",
+    "contato": "insta @lu_beautyhair",
+    "titulo": "Manicure e pedicure a domicílio",
+    "descricao": "Atendo em casa ou vou até você. Esmaltação tradicional, gel e alongamento."
+  },
+  {
+    "id": 6,
+    "tipo": 0,
+    "categoria": 2,
+    "criador": "Matheus Almeida",
+    "contato": "email matheus.design@email.com",
+    "titulo": "Ilustrações personalizadas",
+    "descricao": "Desenhos digitais por encomenda, ideal para presentes ou perfis de redes sociais."
+  },
+  {
+    "id": 7,
+    "tipo": 1,
+    "categoria": 7,
+    "criador": "Renata Lopes",
+    "contato": "whatsapp (11) 90000-1234",
+    "titulo": "Busco roupas femininas estilo retrô",
+    "descricao": "Procuro alguém que venda roupas vintage ou faça sob medida com esse estilo."
+  },
+  {
+    "id": 8,
+    "tipo": 0,
+    "categoria": 8,
+    "criador": "Eduardo Lima",
+    "contato": "insta @doguedu",
+    "titulo": "Passeio com cães em Santo Amaro",
+    "descricao": "Levo seu pet para passeios diários com segurança e carinho. Atuo com pets de pequeno e médio porte."
+  },
+  {
+    "id": 9,
+    "tipo": 1,
+    "categoria": 9,
+    "criador": "Juliana Neri",
+    "contato": "email julinovosprojetos@gmail.com",
+    "titulo": "Procuro parceiro para app de finanças",
+    "descricao": "Tenho a ideia e o design prontos, preciso de alguém com conhecimento em programação."
+  },
+  {
+    "id": 10,
+    "tipo": 0,
+    "categoria": 10,
+    "criador": "Rafael Costa",
+    "contato": "telefone (11) 92345-9988",
+    "titulo": "Troco serviços de edição de vídeo por aulas de espanhol",
+    "descricao": "Sou editor de vídeos e gostaria de trocar meu trabalho por conversas semanais em espanhol."
+  }
+]
