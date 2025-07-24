@@ -41,9 +41,9 @@ body.addEventListener('mousedown', click => {
     // Pesquisa
     if (campoPesquisar) {
         telaPesquisar()
-        abrirModal()
+        // abrirModal()
         telaSup.classList.add('pesquisar', 'show')
-        // document.body.classList.add('travar-scroll') aaa
+        document.body.classList.add('travar-scroll')
 
         if (campoPesquisar) {
             // 1) dispara imediatamente na primeira abertura
@@ -67,10 +67,10 @@ body.addEventListener('mousedown', click => {
 
     if (btnLogar) {
         btnLogar.addEventListener('click', () => {
-            telaLogar()
-            abrirModal()
+            // telaLogar()
+            // abrirModal()
             telaSup.classList.add('show')
-            // document.body.classList.add('travar-scroll') aaa
+            document.body.classList.add('travar-scroll')
         })
     }
 
@@ -137,7 +137,7 @@ body.addEventListener('mousedown', click => {
     <div class="btn btn-sair"><i class="bi bi-box-arrow-right"></i> Sair</div>`
 
         // Fecha tela
-        fecharModal()
+        // fecharModal()
         telaSup.classList.remove('show')
         document.body.classList.remove('travar-scroll')
     })
@@ -162,20 +162,20 @@ body.addEventListener('mousedown', click => {
 
     if (btnCriar) {
         btnCriar.addEventListener('click', () => {
-            abrirModal()
+            // abrirModal()
             telaAddOferta()
             telaSup.classList.add('show')
-            // document.body.classList.add('travar-scroll') aaa
+            document.body.classList.add('travar-scroll')
         })
     }
 
 
     if (card) {
         const cardId = Number(card.getAttribute('idcard'))
-        abrirModal()
+        // abrirModal()
         telaDescricao(cardId)
         telaSup.classList.add('show')
-        // document.body.classList.add('travar-scroll') aaa
+        document.body.classList.add('travar-scroll')
     }
 })
 
@@ -184,7 +184,7 @@ body.addEventListener('mousedown', click => {
 telaSup.addEventListener('mousedown', e => {
     const btnCadastrarOferta = telaSupAdd.querySelector('.btn-cadastrar-oferta')
     if (e.target === telaSup) {
-        fecharModal()
+        // fecharModal()
         telaSup.classList.remove('show')
         document.body.classList.remove('travar-scroll')
     }
@@ -660,16 +660,16 @@ function telaPesquisar() {
 // ---------- Ferramentas ---------- \\
 //-----------------------------------\\
 
-function abrirModal() {
-    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-    document.body.style.overflow = 'hidden';
-    document.body.style.paddingRight = `${scrollbarWidth}px`;
-}
+// function abrirModal() {
+//     const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+//     document.body.style.overflow = 'hidden';
+//     document.body.style.paddingRight = `${scrollbarWidth}px`;
+// }
 
-function fecharModal() {
-    document.body.style.overflow = '';
-    document.body.style.paddingRight = '';
-}
+// function fecharModal() {
+//     document.body.style.overflow = '';
+//     document.body.style.paddingRight = '';
+// }
 
 async function hashSenha(senha) {
     return SHA256(senha).toString()
