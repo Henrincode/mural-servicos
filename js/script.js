@@ -31,61 +31,6 @@ const cards = document.querySelector('.cards')
 // ---------- eventos ---------- \\
 //-------------------------------\\
 
-function telaPesquisar() {
-    const p = document.querySelector('.campoPesquisar').value.trim().toLowerCase()
-    let ofertasTemp
-
-    if (!bancoOfertas.length) {
-        telaSupAdd.innerHTML = `
-            <div class="importar-banco">Sem dados, cadastre o primeiro card ;)</div>`
-        return
-    }
-
-    if (!p) {
-        telaSupAdd.innerHTML = 'Preencha o campo pesquisa para buscar ofertas'
-        return
-    } else {
-        ofertasTemp = bancoOfertas.filter(oferta => {
-            return (
-                oferta.titulo?.toLowerCase().includes(p) ||
-                oferta.descricao?.toLowerCase().includes(p) ||
-                retornaCategoria(oferta.categoria).nome?.toLowerCase().includes(p) ||
-                oferta.tipo?.toString().toLowerCase().includes(p) ||
-                retornaUsuario(oferta.criador).nome?.toLowerCase().includes(p)
-            )
-        })
-    }
-
-    let html = `<div class="cards formatoCardsPesquisa">`
-    ofertasTemp.forEach(oferta => {
-
-        const tag = oferta.tipo ? 'procurando' : 'oferecendo'
-        const tagTexto = oferta.tipo ? '🔍 Procurando' : '🛠️ Oferecendo'
-        const categoria = retornaCategoria(oferta.categoria)
-        // const classCategoria =
-        html += `
-            
-            <div idcard="${oferta.id}" class="card">
-                <div class="tags">
-                    <div class="tag ${tag}">
-                    ${tagTexto}
-                    </div>
-                    <div class="categoria" style="background: ${categoria.cor}">${categoria.nome}</div>
-                </div>
-                <div class="informacao">
-                    <p class="ctitulo">${charMax(oferta.titulo, 50)}</p>
-                    <p class="descricao">
-                        ${charMax(oferta.descricao, 150)}
-                    </p>
-                </div>
-                <div class="btn">Ver mais / contato</div>
-            </div>
-        `
-    })
-    html += `</div>`
-    telaSupAdd.innerHTML = html
-}
-
 body.addEventListener('mousedown', click => {
     const campoPesquisar = click.target.closest('.campoPesquisar')
     const btnLogar = click.target.closest('.btn-logar')
@@ -96,9 +41,9 @@ body.addEventListener('mousedown', click => {
     // Pesquisa
     if (campoPesquisar) {
         telaPesquisar()
+        abrirModal()
         telaSup.classList.add('pesquisar', 'show')
-        setTimeout(e => telaSup.classList.add('notrans'), 500)
-        document.body.classList.add('travar-scroll')
+        // document.body.classList.add('travar-scroll') aaa
 
         if (campoPesquisar) {
             // 1) dispara imediatamente na primeira abertura
@@ -123,8 +68,9 @@ body.addEventListener('mousedown', click => {
     if (btnLogar) {
         btnLogar.addEventListener('click', () => {
             telaLogar()
+            abrirModal()
             telaSup.classList.add('show')
-            document.body.classList.add('travar-scroll')
+            // document.body.classList.add('travar-scroll') aaa
         })
     }
 
@@ -191,6 +137,7 @@ body.addEventListener('mousedown', click => {
     <div class="btn btn-sair"><i class="bi bi-box-arrow-right"></i> Sair</div>`
 
         // Fecha tela
+        fecharModal()
         telaSup.classList.remove('show')
         document.body.classList.remove('travar-scroll')
     })
@@ -215,18 +162,20 @@ body.addEventListener('mousedown', click => {
 
     if (btnCriar) {
         btnCriar.addEventListener('click', () => {
+            abrirModal()
             telaAddOferta()
             telaSup.classList.add('show')
-            document.body.classList.add('travar-scroll')
+            // document.body.classList.add('travar-scroll') aaa
         })
     }
 
 
     if (card) {
         const cardId = Number(card.getAttribute('idcard'))
+        abrirModal()
         telaDescricao(cardId)
         telaSup.classList.add('show')
-        document.body.classList.add('travar-scroll')
+        // document.body.classList.add('travar-scroll') aaa
     }
 })
 
@@ -235,6 +184,7 @@ body.addEventListener('mousedown', click => {
 telaSup.addEventListener('mousedown', e => {
     const btnCadastrarOferta = telaSupAdd.querySelector('.btn-cadastrar-oferta')
     if (e.target === telaSup) {
+        fecharModal()
         telaSup.classList.remove('show')
         document.body.classList.remove('travar-scroll')
     }
@@ -628,7 +578,7 @@ function telaAddOferta() {
         </form>
 `
 }
-// ${usuario.nome}
+
 function telaDescricao(card) {
     const oferta = bancoOfertas.find(oferta => oferta.id === card)
     const usuario = retornaUsuario(oferta.criador)
@@ -647,9 +597,79 @@ function telaDescricao(card) {
 `
 }
 
+// TELA PESQUISA
+function telaPesquisar() {
+    const p = document.querySelector('.campoPesquisar').value.trim().toLowerCase()
+    let ofertasTemp
+
+    if (!bancoOfertas.length) {
+        telaSupAdd.innerHTML = `
+            <div class="solicita-cadastrar-card">Sem dados, cadastre o primeiro card ;)</div>`
+        return
+    }
+
+    if (!p) {
+        telaSupAdd.innerHTML = `
+        <div class="solicita-cadastrar-card">
+        <span><i class="bi bi-arrow-up-left"></i></span>
+        <p>Preencha o campo pesquisa para buscar ofertas</p></div>`
+        return
+    } else {
+        ofertasTemp = bancoOfertas.filter(oferta => {
+            return (
+                oferta.titulo?.toLowerCase().includes(p) ||
+                oferta.descricao?.toLowerCase().includes(p) ||
+                retornaCategoria(oferta.categoria).nome?.toLowerCase().includes(p) ||
+                oferta.tipo?.toString().toLowerCase().includes(p) ||
+                retornaUsuario(oferta.criador).nome?.toLowerCase().includes(p)
+            )
+        })
+    }
+
+    let html = `<div class="cards formatoCardsPesquisa">`
+    ofertasTemp.forEach(oferta => {
+
+        const tag = oferta.tipo ? 'procurando' : 'oferecendo'
+        const tagTexto = oferta.tipo ? '🔍 Procurando' : '🛠️ Oferecendo'
+        const categoria = retornaCategoria(oferta.categoria)
+        // const classCategoria =
+        html += `
+            
+            <div idcard="${oferta.id}" class="card">
+                <div class="tags">
+                    <div class="tag ${tag}">
+                    ${tagTexto}
+                    </div>
+                    <div class="categoria" style="background: ${categoria.cor}">${categoria.nome}</div>
+                </div>
+                <div class="informacao">
+                    <p class="ctitulo">${charMax(oferta.titulo, 50)}</p>
+                    <p class="descricao">
+                        ${charMax(oferta.descricao, 150)}
+                    </p>
+                </div>
+                <div class="btn">Ver mais / contato</div>
+            </div>
+        `
+    })
+    html += `</div>`
+    telaSupAdd.innerHTML = html
+}
+
 //-----------------------------------\\
 // ---------- Ferramentas ---------- \\
 //-----------------------------------\\
+
+function abrirModal() {
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    document.body.style.overflow = 'hidden';
+    document.body.style.paddingRight = `${scrollbarWidth}px`;
+}
+
+function fecharModal() {
+    document.body.style.overflow = '';
+    document.body.style.paddingRight = '';
+}
 
 async function hashSenha(senha) {
     return SHA256(senha).toString()
