@@ -378,7 +378,7 @@ footer .btn:hover {
   background-color: #f7941d;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 975px) {
   main {
     margin-top: 0px;
   }
