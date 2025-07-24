@@ -14,7 +14,8 @@
   justify-content: center;
   align-items: start;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
   padding: 120px 0;
   padding-top: 300px;
   background-color: rgba(71, 71, 71, 0.7);
