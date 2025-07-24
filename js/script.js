@@ -51,11 +51,74 @@ body.addEventListener('mousedown', click => {
         })
     }
 
+    // EVENTO DE LOGIN
+    body.addEventListener('click', async e => {
+        const btnLogar = e.target.closest('.btn-usuario-logar')
+        if (!btnLogar) return
+
+        const form = telaSupAdd.querySelector('form')
+        const emailInput = form.querySelector('#form-email')
+        const senhaInput = form.querySelector('#form-senha')
+
+        const email = emailInput.value.trim()
+        const senha = senhaInput.value.trim()
+
+        // Validação simples
+        if (!email || !senha) {
+            emailInput.style.border = '2px solid red'
+            senhaInput.style.border = '2px solid red'
+            return
+        }
+
+        await carregarUsuarios()
+
+        let usuario = null
+
+        for (const u of bancoUsuarios) {
+            const senhaHash = await hashSenha(senha)
+            if (u.email === email && u.senha === senhaHash) {
+                usuario = u
+                break
+            }
+        }
+
+        if (!usuario) {
+            emailInput.style.border = '2px solid red'
+            senhaInput.style.border = '2px solid red'
+            return
+        }
+
+
+        if (!usuario) {
+            emailInput.style.border = '2px solid red'
+            senhaInput.style.border = '2px solid red'
+            return
+        }
+
+        // Salva no localStorage e atualiza interface
+        localStorage.setItem('usuario', JSON.stringify(usuario))
+        logado.id = usuario.id
+        logado.nome = usuario.nome
+        logado.email = usuario.email
+
+        nomeUsuario.innerHTML = `
+    <div>${charMax(logado.nome, 15)}</div>`
+        btnLogin.innerHTML = `
+    <div class="btn btn-criar"><i class="bi bi-pencil-square"></i> Criar</div>
+    <div class="btn btn-sair"><i class="bi bi-box-arrow-right"></i> Sair</div>`
+
+        // Fecha tela
+        telaSup.classList.remove('show')
+        document.body.classList.remove('travar-scroll')
+    })
+
+
     // EVENTO DE LOGOUT
     btnLogin.addEventListener('click', e => {
         const btnSair = e.target.closest('.btn-sair')
         if (btnSair) {
             localStorage.removeItem('usuario')
+            nomeUsuario.innerHTML = ''
             btnLogin.innerHTML = `
                 <div class="btn btn-logar"><i class="bi bi-box-arrow-in-right"></i> Entrar</div>
                 `
@@ -118,7 +181,7 @@ carregarPagina()
 // Se não estiver logado logar, se estiver logado cria
 if (logado.id) {
     nomeUsuario.innerHTML = `
-    <div>${charMax(logado.nome, 99)}</div>`
+    <div>${charMax(logado.nome, 15)}</div>`
     btnLogin.innerHTML = `
     <div class="btn btn-criar"><i class="bi bi-pencil-square"></i> Criar</div>
     <div class="btn btn-sair"><i class="bi bi-box-arrow-right"></i> Sair</div>
@@ -250,12 +313,12 @@ function cadastrarOferta() {
 
 // CADASTRAR USUARIO
 async function cadastrarUsuarioBanco() {
-    console.log('teste1')
     const form = telaSupAdd.querySelector('form')
     const nomeInput = form.querySelector('#form-nome')
     const emailInput = form.querySelector('#form-email')
     const senhaInput = form.querySelector('#form-senha')
     const senha2Input = form.querySelector('#form-senha2')
+    const erroCadastro = document.querySelector('#erroCadastro')
 
     const campos = [nomeInput, emailInput, senhaInput, senha2Input]
     let valido = true
@@ -270,13 +333,16 @@ async function cadastrarUsuarioBanco() {
         }
     })
 
-    if (!valido) return
+    if (!valido) {
+        erroCadastro.innerHTML = 'Preencha todos os campos'
+        return
+    }
 
     // Verifica se as senhas coincidem
     if (senhaInput.value !== senha2Input.value) {
         senhaInput.style.border = '2px solid red'
         senha2Input.style.border = '2px solid red'
-        // alert('As senhas não coincidem!')
+        erroCadastro.innerHTML = 'As senhas não coincidem!'
         return
     }
 
@@ -284,7 +350,7 @@ async function cadastrarUsuarioBanco() {
     const email = emailInput.value.trim()
     if (!validarEmail(email)) {
         emailInput.style.border = '2px solid red'
-        // alert('Digite um e-mail válido.')
+        erroCadastro.innerHTML = 'Digite um e-mail válido.'
         return
     }
 
@@ -293,7 +359,7 @@ async function cadastrarUsuarioBanco() {
     const emailJaExiste = bancoUsuarios.some(u => u.email === email)
     if (emailJaExiste) {
         emailInput.style.border = '2px solid red'
-        alert('Este e-mail já está cadastrado.')
+        erroCadastro.innerHTML = 'Este e-mail já está cadastrado.'
         return
     }
 
@@ -314,7 +380,7 @@ async function cadastrarUsuarioBanco() {
 
     if (error) {
         console.error('Erro ao cadastrar usuário:', error)
-        // alert('Erro ao cadastrar. Tente novamente.')
+        erroCadastro.innerHTML = 'Erro ao cadastrar. Tente novamente.'
         return
     }
 
@@ -327,6 +393,8 @@ async function cadastrarUsuarioBanco() {
     logado.email = usuarioLogado.email
 
     // Atualiza botão superior
+    nomeUsuario.innerHTML = `
+    <div>${charMax(logado.nome, 15)}</div>`
     btnLogin.innerHTML = `
     <div class="btn btn-criar"><i class="bi bi-pencil-square"></i> Criar</div>
     <div class="btn btn-sair"><i class="bi bi-box-arrow-right"></i> Sair</div>`
@@ -435,6 +503,7 @@ function telaCadastrarUsuario() {
                 <input type="password" id="form-senha" name="senha">
                 <label for="form-senha2">Repetir a senha</label>
                 <input type="password" id="form-senha2" name="senha2">
+                <div id="erroCadastro">a</div>
                 <div class="row">
                     <div class="row-item cadastrarUsuarioBanco btn-usuario-cadastrar">Cadastrar</div>
                 </div>
