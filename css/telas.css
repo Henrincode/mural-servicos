@@ -4,7 +4,6 @@
 
 #tela-sup {
   overflow-y: scroll;
-  overflow-x: hidden;
   z-index: 10;
   position: fixed;
   opacity: 0;
@@ -17,7 +16,6 @@
   min-height: 100vh;
   height: 100%;
   padding: 120px 0;
-  padding-top: 300px;
   background-color: rgba(71, 71, 71, 0.7);
   backdrop-filter: blur(10px);
   transition: opacity 400ms ease, visibility 400ms ease;
@@ -178,3 +176,26 @@
 /* .areapesquisa {
   width: 550px;
 } */
+
+@media (max-width: 975px) {
+  #tela-sup {
+    padding-top: 300px;
+  }
+
+}
+
+.solicita-cadastrar-card {
+  display: flex;
+  gap: 20px;
+  flex-direction: row;
+  padding: 20px;
+  font-style: 160px;
+  font-family: "Poppins";
+  color: #242424;
+}
+
+.solicita-cadastrar-card span {
+  flex: 1;
+  display: block;
+  font-size: 30px;
+}
