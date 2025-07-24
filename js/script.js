@@ -503,7 +503,7 @@ function telaCadastrarUsuario() {
                 <input type="password" id="form-senha" name="senha">
                 <label for="form-senha2">Repetir a senha</label>
                 <input type="password" id="form-senha2" name="senha2">
-                <div id="erroCadastro">a</div>
+                <div id="erroCadastro"></div>
                 <div class="row">
                     <div class="row-item cadastrarUsuarioBanco btn-usuario-cadastrar">Cadastrar</div>
                 </div>
@@ -559,7 +559,7 @@ function telaDescricao(card) {
             <label for="form-titulo">Título da oferta</label>
             <input type="titulo" id="form-titulo" value="${oferta.titulo}" readonly>
             <label for="form-descricao">Descrição da oferta</label>
-            <textarea class="textarea2" name="descricao" id="form-descricao">${card.descricao}</textarea>
+            <textarea class="textarea2" name="descricao" id="form-descricao">${oferta.descricao}</textarea>
         </form>
 `
 }
