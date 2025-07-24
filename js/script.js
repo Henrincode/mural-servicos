@@ -35,6 +35,7 @@ function cadastrarOferta() {
     const form = telaSupAdd.querySelector('form')
 
     const nomeInput = form.querySelector('#form-nome')
+    const contatoInput = form.querySelector('#form-contato')
     const tipoInput = form.querySelector('#form-tipo')
     const categoriaInput = form.querySelector('#form-categoria')
     const tituloInput = form.querySelector('#form-titulo')
@@ -43,7 +44,7 @@ function cadastrarOferta() {
     let valido = true
 
     // Lista de campos para validar
-    const campos = [nomeInput, tipoInput, categoriaInput, tituloInput, descricaoInput]
+    const campos = [nomeInput, contatoInput, tipoInput, categoriaInput, tituloInput, descricaoInput]
 
     campos.forEach(campo => {
         if (campo.value.trim() === '') {
@@ -60,6 +61,7 @@ function cadastrarOferta() {
     const novaOferta = {
         id: gerarID(),
         nome: nomeInput.value.trim(),
+        contato: contatoInput.value.trim(),
         tipo: Number(tipoInput.value),
         categoria: Number(categoriaInput.value),
         titulo: tituloInput.value.trim(),
@@ -151,9 +153,9 @@ function carregarCards(categoria = 0) {
                     <div class="categoria" style="background: ${categoria.cor}">${categoria.nome}</div>
                 </div>
                 <div class="informacao">
-                    <p class="titulo">${oferta.titulo}</p>
+                    <p class="titulo">${charMax(oferta.titulo, 50)}</p>
                     <p class="descricao">
-                        ${oferta.descricao}
+                        ${charMax(oferta.descricao, 180)}
                     </p>
                 </div>
                 <div class="btn">Ver mais / contato</div>
@@ -176,6 +178,8 @@ function telaAddOferta() {
         <form action="">
             <label for="form-nome">Nome</label>
             <input type="text" id="form-nome" name="criador" placeholder="Fulano da Silva">
+            <label for="form-contato">Contato</label>
+            <input type="text" id="form-contato" name="contato" placeholder="@instagram / 19 988884444">
             <div class="row">
                 <div class="row-item">
                     <label for="form-form-tipo">Tipo da oferta</label>
@@ -215,4 +219,11 @@ function gerarID() {
 function retornaCategoria(id) {
     return bancoCategorias.find(categoria => categoria.id === id)
 
+}
+
+function charMax(string, max) {
+    if (string.length > max) {
+        return `${string.slice(0, max)}...`;
+    }
+    return string;
 }
