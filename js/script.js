@@ -96,26 +96,23 @@ body.addEventListener('mousedown', click => {
     // Pesquisa
     if (campoPesquisar) {
         telaPesquisar()
-        telaSup.classList.add('pesquisar')
-        telaSup.classList.add('show')
+        telaSup.classList.add('pesquisar', 'show')
+        setTimeout(e => telaSup.classList.add('notrans'), 500)
         document.body.classList.add('travar-scroll')
 
         if (campoPesquisar) {
             // 1) dispara imediatamente na primeira abertura
             telaPesquisar()
-            telaSup.classList.add('pesquisar', 'show')
-            document.body.classList.add('travar-scroll')
 
             // 2) adiciona o handler de input *uma vez* para buscas em tempo real
-            //    você pode envolver isso num flag para não anexar várias vezes
             if (!campoPesquisar.dataset.inputAttached) {
                 campoPesquisar.dataset.inputAttached = 'true'
                 campoPesquisar.addEventListener('input', () => {
                     // opcional: só abre a tela se ainda não estiver aberta
-                    if (!telaSup.classList.contains('show')) {
-                        telaSup.classList.add('pesquisar', 'show')
-                        document.body.classList.add('travar-scroll')
-                    }
+                    // if (!telaSup.classList.contains('show')) {
+                    //     telaSup.classList.add('pesquisar', 'show')
+                    //     document.body.classList.add('travar-scroll')
+                    // }
                     telaPesquisar()
                 })
             }
