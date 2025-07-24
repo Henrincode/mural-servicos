@@ -141,7 +141,6 @@ body.addEventListener('mousedown', click => {
 
     if (card) {
         const cardId = Number(card.getAttribute('idcard'))
-        console.log(cardId)
         telaDescricao(cardId)
         telaSup.classList.add('show')
         document.body.classList.add('travar-scroll')
@@ -415,6 +414,7 @@ async function cadastrarUsuarioBanco() {
 
 async function carregarPagina() {
 
+    await carregarUsuarios()
     await carregarCategorias()
     await carregarOfertas()
 
@@ -545,18 +545,19 @@ function telaAddOferta() {
         </form>
 `
 }
-
+// ${usuario.nome}
 function telaDescricao(card) {
-    card = bancoOfertas.find(oferta => oferta.id === card)
+    const oferta = bancoOfertas.find(oferta => oferta.id === card)
+    const usuario = retornaUsuario(oferta.criador)
     telaSupAdd.innerHTML = `
         <div class="titulo">Detalhes</div>
         <form action="">
             <label for="form-nome"><i class="bi bi-person-fill"></i> Nome</label>
-            <input type="text" id="form-nome" name="criador" value="${card.criador}" readonly>
+            <input type="text" id="form-nome" name="criador" value="${usuario.nome}" readonly>
             <label for="form-contato"><i class="bi bi-telephone-fill"></i> Contato</label>
-            <input type="text" id="form-contato" name="contato" value="${card.contato}" readonly>
+            <input type="text" id="form-contato" name="contato" value="${oferta.contato}" readonly>
             <label for="form-titulo">Título da oferta</label>
-            <input type="titulo" id="form-titulo" value="${card.titulo}" readonly>
+            <input type="titulo" id="form-titulo" value="${oferta.titulo}" readonly>
             <label for="form-descricao">Descrição da oferta</label>
             <textarea class="textarea2" name="descricao" id="form-descricao">${card.descricao}</textarea>
         </form>
