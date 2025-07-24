@@ -1,4 +1,4 @@
-#tela-adicionar {
+#tela-sup {
   z-index: 999;
   position: fixed;
   opacity: 0;
@@ -14,14 +14,93 @@
   transition: 400ms;
 }
 
-#tela-adicionar.show {
+#tela-sup.show {
   opacity: 1;
   visibility: visible;
 }
 
-#tela-adicionar .tela {
+#tela-sup .tela {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 400px;
-  height: 700px;
   border-radius: 10px;
   background-color: aliceblue;
+}
+
+#tela-sup .titulo {
+  padding: 10px;
+  border-radius: 0 0 10px 10px;
+
+  font-size: 20px;
+  font-family: "Poppins";
+  color: white;
+  background-color: #2967f4;
+}
+
+#tela-sup form {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  padding: 10px;
+
+  font-size: 20px;
+  font-family: "Poppins";
+  color: #242424;
+}
+
+#tela-sup form label {
+  margin-left: 10px;
+}
+
+#tela-sup form input,
+#tela-sup form select,
+#tela-sup form textarea {
+  resize: none;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+
+  font-size: 16px;
+  font-family: "Poppins";
+}
+
+#tela-sup form select {
+  padding: 4px;
+  font-size: 16px;
+}
+
+#tela-sup form textarea {
+  height: 300px;
+}
+
+#tela-sup form .row {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+#tela-sup form .row-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+#tela-sup form .btn-cadastrar-oferta {
+  user-select: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 20px;
+  font-family: "Poppins";
+  text-align: center;
+  color: white;
+  background-color: #2967f4;
+}
+
+#tela-sup form .btn-cadastrar-oferta:hover {
+  background-color: #f7941d;
 }
