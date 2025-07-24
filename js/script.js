@@ -31,11 +31,95 @@ const cards = document.querySelector('#cards')
 // ---------- eventos ---------- \\
 //-------------------------------\\
 
+function telaPesquisar() {
+    const p = document.querySelector('.campoPesquisar').value.trim().toLowerCase()
+    let ofertasTemp
+
+    if (!bancoOfertas.length) {
+        telaSupAdd.innerHTML = `
+            <div class="importar-banco">Sem dados, cadastre o primeiro card ;)</div>`
+        return
+    }
+
+    if (!p) {
+        telaSupAdd.innerHTML = 'Preencha o campo pesquisa para buscar ofertas'
+        return
+    } else {
+        ofertasTemp = bancoOfertas.filter(oferta => {
+            return (
+                oferta.titulo?.toLowerCase().includes(p) ||
+                oferta.descricao?.toLowerCase().includes(p) ||
+                retornaCategoria(oferta.categoria).nome?.toLowerCase().includes(p) ||
+                oferta.tipo?.toString().toLowerCase().includes(p) ||
+                retornaUsuario(oferta.criador).nome?.toLowerCase().includes(p)
+            )
+        })
+    }
+
+    telaSupAdd.innerHTML = ``
+    ofertasTemp.forEach(oferta => {
+
+        const tag = oferta.tipo ? 'procurando' : 'oferecendo'
+        const tagTexto = oferta.tipo ? '🔍 Procurando' : '🛠️ Oferecendo'
+        const categoria = retornaCategoria(oferta.categoria)
+        // const classCategoria =
+        telaSupAdd.innerHTML += `
+            
+            <div idcard="${oferta.id}" class="pcard">
+                <div class="ptags">
+                    <div class="ptag ${tag}">
+                    ${tagTexto}
+                    </div>
+                    <div class="pcategoria" style="background: ${categoria.cor}">${categoria.nome}</div>
+                </div>
+                <div class="pinformacao">
+                    <p class="ptitulo">${charMax(oferta.titulo, 50)}</p>
+                    <p class="pdescricao">
+                        ${charMax(oferta.descricao, 150)}
+                    </p>
+                </div>
+                <div class="pbtn">Ver mais / contato</div>
+            </div>
+        `
+    })
+}
+
 body.addEventListener('mousedown', click => {
+    const campoPesquisar = click.target.closest('.campoPesquisar')
     const btnLogar = click.target.closest('.btn-logar')
     const cadastrarUsuario = click.target.closest('.usuarioCadastrar')
     const btnCriar = click.target.closest('.btn-criar')
     const card = click.target.closest('.card')
+
+    // Pesquisa
+    if (campoPesquisar) {
+        telaPesquisar()
+        telaSup.classList.add('pesquisar')
+        telaSup.classList.add('show')
+        document.body.classList.add('travar-scroll')
+
+        if (campoPesquisar) {
+            // 1) dispara imediatamente na primeira abertura
+            telaPesquisar()
+            telaSup.classList.add('pesquisar', 'show')
+            document.body.classList.add('travar-scroll')
+
+            // 2) adiciona o handler de input *uma vez* para buscas em tempo real
+            //    você pode envolver isso num flag para não anexar várias vezes
+            if (!campoPesquisar.dataset.inputAttached) {
+                campoPesquisar.dataset.inputAttached = 'true'
+                campoPesquisar.addEventListener('input', () => {
+                    // opcional: só abre a tela se ainda não estiver aberta
+                    if (!telaSup.classList.contains('show')) {
+                        telaSup.classList.add('pesquisar', 'show')
+                        document.body.classList.add('travar-scroll')
+                    }
+                    telaPesquisar()
+                })
+            }
+        }
+    }
+
 
     if (btnLogar) {
         btnLogar.addEventListener('click', () => {

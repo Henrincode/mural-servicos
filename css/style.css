@@ -129,7 +129,7 @@ footer .btn:hover {
   position: absolute;
   top: 12px;
   left: 12px;
-  
+
   color: #2967f4;
   font-size: 30px;
   font-weight: 900;
@@ -272,7 +272,8 @@ footer .btn:hover {
   font-family: "Poppins";
 } */
 
-#cards .card {
+#cards .card,
+.tela .pcard {
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -292,11 +293,13 @@ footer .btn:hover {
   user-select: none;
 }
 
-#cards .card:hover {
+#cards .card:hover,
+.tela .pcad:hover {
   transform: translateY(-10px);
 }
 
-#cards .tags {
+#cards .tags,
+.tela .ptags {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -305,23 +308,29 @@ footer .btn:hover {
 }
 
 #cards .procurando,
-#cards .oferecendo {
+#cards .oferecendo,
+.tela .pprocurando,
+.tela .poferecendo {
   background-color: #242424;
 }
 
-#cards .tag {
+#cards .tag,
+.tela .ptag {
   width: 150px;
   border-radius: 10px 0 0 0;
 }
 
-#cards .categoria {
+#cards .categoria,
+.tela .pcategoria {
   flex: 1;
   border-radius: 0 10px 0 0;
   text-align: right;
 }
 
 #cards .tag,
-#cards .categoria {
+#cards .categoria,
+.tela .ptag,
+.tela .pcategoria {
   padding: 4px 10px;
   color: white;
   font-size: 16px;
@@ -329,7 +338,8 @@ footer .btn:hover {
   font-weight: 300;
 }
 
-#cards .informacao {
+#cards .informacao,
+.tela .pinformacao {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -339,19 +349,22 @@ footer .btn:hover {
   padding: 10px;
 }
 
-#cards .titulo {
+#cards .titulo,
+.tela .ptitulo {
   border-bottom: 1px solid #f4f4f4;
   font-size: 20px;
   text-align: center;
   font-weight: bold;
 }
 
-#cards .descricao {
+#cards .descricao,
+.tela .pdescricao {
   flex: 1;
   font-size: 14px;
 }
 
-#cards .btn {
+#cards .btn,
+.tela .pbtn {
   width: 100%;
   padding: 10px;
   border-radius: 0 0 10px 10px;
@@ -360,7 +373,8 @@ footer .btn:hover {
   background-color: #444;
 }
 
-#cards .card:hover .btn {
+#cards .card:hover .btn,
+.tela .pcard:hover .pbtn {
   background-color: #f7941d;
 }
 

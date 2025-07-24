@@ -14,15 +14,19 @@
   align-items: start;
   width: 100vw;
   height: 100vh;
-  padding: 80px 0;
+  padding: 120px 0;
   background-color: rgba(71, 71, 71, 0.7);
   backdrop-filter: blur(10px);
-  transition: 400ms;
+  transition: opacity 400ms ease, visibility 400ms ease;
 }
 
 #tela-sup.show {
   opacity: 1;
   visibility: visible;
+}
+
+#tela-sup.pesquisar {
+  z-index: 8;
 }
 
 #tela-sup .tela {
