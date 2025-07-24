@@ -350,7 +350,11 @@ footer .btn:hover {
 
 @media (max-width: 600px) {
   main {
-    margin-top: 228px;
+    margin-top: 0px;
+  }
+
+  #header-top {
+    position: relative;
   }
 
   #header-top .box,
