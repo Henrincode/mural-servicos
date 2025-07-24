@@ -151,3 +151,10 @@
   height: 4px;
   background-color: #2967f4;
 }
+
+#erroCadastro {
+  color: red;
+  font-size: 16px;
+  font-weight: 300;
+  text-align: center;
+}
