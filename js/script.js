@@ -67,7 +67,7 @@ body.addEventListener('mousedown', click => {
 
     if (btnLogar) {
         btnLogar.addEventListener('click', () => {
-            // telaLogar()
+            telaLogar()
             // abrirModal()
             telaSup.classList.add('show')
             document.body.classList.add('travar-scroll')
