@@ -155,7 +155,7 @@ function carregarCards(categoria = 0) {
                 <div class="informacao">
                     <p class="titulo">${charMax(oferta.titulo, 50)}</p>
                     <p class="descricao">
-                        ${charMax(oferta.descricao, 180)}
+                        ${charMax(oferta.descricao, 150)}
                     </p>
                 </div>
                 <div class="btn">Ver mais / contato</div>
