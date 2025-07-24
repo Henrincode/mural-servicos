@@ -1,5 +1,5 @@
 .travar-scroll {
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 #tela-sup {
@@ -15,6 +15,7 @@
   width: 100vw;
   height: 100vh;
   padding: 120px 0;
+  padding-top: 300px;
   background-color: rgba(71, 71, 71, 0.7);
   backdrop-filter: blur(10px);
   transition: opacity 400ms ease, visibility 400ms ease;
@@ -33,7 +34,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 400px;
+  max-width: 400px;
+  width: 100%;
   /* height: 2000px; */
   margin: 10px;
   border-radius: 10px;
@@ -167,6 +169,6 @@
   margin: 20px 0;
 }
 
-.areapesquisa {
+/* .areapesquisa {
   width: 550px;
-}
+} */
