@@ -559,7 +559,7 @@ function telaDescricao(card) {
             <label for="form-titulo">Título da oferta</label>
             <input type="titulo" id="form-titulo" value="${oferta.titulo}" readonly>
             <label for="form-descricao">Descrição da oferta</label>
-            <textarea class="textarea2" name="descricao" id="form-descricao">${oferta.descricao}</textarea>
+            <textarea class="textarea2" name="descricao" id="form-descricao" readonly>${oferta.descricao}</textarea>
         </form>
 `
 }
