@@ -21,6 +21,10 @@
   transition: opacity 400ms ease, visibility 400ms ease;
 }
 
+#tela-sup.notrans {
+  transition: none;
+}
+
 #tela-sup.show {
   opacity: 1;
   visibility: visible;
