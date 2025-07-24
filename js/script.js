@@ -25,7 +25,7 @@ const btnLogin = document.querySelector('#btn-login')
 const areaCategorias = document.querySelector('#area-categorias .categorias')
 const telaSup = document.querySelector('#tela-sup')
 const telaSupAdd = telaSup.querySelector('.tela');
-const cards = document.querySelector('#cards')
+const cards = document.querySelector('.cards')
 
 //-------------------------------\\
 // ---------- eventos ---------- \\
@@ -56,32 +56,34 @@ function telaPesquisar() {
         })
     }
 
-    telaSupAdd.innerHTML = ``
+    let html = `<div class="cards formatoCardsPesquisa">`
     ofertasTemp.forEach(oferta => {
 
         const tag = oferta.tipo ? 'procurando' : 'oferecendo'
         const tagTexto = oferta.tipo ? '🔍 Procurando' : '🛠️ Oferecendo'
         const categoria = retornaCategoria(oferta.categoria)
         // const classCategoria =
-        telaSupAdd.innerHTML += `
+        html += `
             
-            <div idcard="${oferta.id}" class="pcard">
-                <div class="ptags">
-                    <div class="ptag ${tag}">
+            <div idcard="${oferta.id}" class="card">
+                <div class="tags">
+                    <div class="tag ${tag}">
                     ${tagTexto}
                     </div>
-                    <div class="pcategoria" style="background: ${categoria.cor}">${categoria.nome}</div>
+                    <div class="categoria" style="background: ${categoria.cor}">${categoria.nome}</div>
                 </div>
-                <div class="pinformacao">
-                    <p class="ptitulo">${charMax(oferta.titulo, 50)}</p>
-                    <p class="pdescricao">
+                <div class="informacao">
+                    <p class="ctitulo">${charMax(oferta.titulo, 50)}</p>
+                    <p class="descricao">
                         ${charMax(oferta.descricao, 150)}
                     </p>
                 </div>
-                <div class="pbtn">Ver mais / contato</div>
+                <div class="btn">Ver mais / contato</div>
             </div>
         `
     })
+    html += `</div>`
+    telaSupAdd.innerHTML = html
 }
 
 body.addEventListener('mousedown', click => {
@@ -544,7 +546,7 @@ function carregarCards(categoria = 0) {
                     <div class="categoria" style="background: ${categoria.cor}">${categoria.nome}</div>
                 </div>
                 <div class="informacao">
-                    <p class="titulo">${charMax(oferta.titulo, 50)}</p>
+                    <p class="ctitulo">${charMax(oferta.titulo, 50)}</p>
                     <p class="descricao">
                         ${charMax(oferta.descricao, 150)}
                     </p>

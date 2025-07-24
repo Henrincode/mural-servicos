@@ -162,3 +162,11 @@
   font-weight: 300;
   text-align: center;
 }
+
+.formatoCardsPesquisa {
+  margin: 20px 0;
+}
+
+.areapesquisa {
+  width: 550px;
+}
