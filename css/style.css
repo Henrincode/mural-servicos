@@ -80,7 +80,7 @@ footer .btn:hover {
 /* HEADER NAV */
 
 #header-top {
-  z-index: 999;
+  z-index: 9;
   position: fixed;
   top: 0;
 
@@ -129,10 +129,24 @@ footer .btn:hover {
   position: absolute;
   top: 12px;
   left: 12px;
-
+  
   color: #2967f4;
   font-size: 30px;
   font-weight: 900;
+}
+
+#header-top #nomeUsuario {
+  align-self: center;
+  font-size: 20px;
+  font-family: "Poppins";
+  white-space: nowrap;
+}
+
+#header-top #btn-login {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 20px;
 }
 
 #header-top .btn {
@@ -171,15 +185,17 @@ footer .btn:hover {
   font-family: "Poppins";
   text-shadow: 1px 1px 2px #242424;
 
+  /* background-image: url(../img/thumbs/mural.png); */
   background-image: url(../img/thumbs/capa-01.jpeg);
   background-size: cover;
-  background-position: center;
+  background-position: center center;
   background-repeat: none;
 }
 
 #destaques .gradient {
   padding: 60px 0;
   background: linear-gradient(90deg, #2269b3 0%, rgba(80, 133, 255, 0) 100%);
+  backdrop-filter: blur(3px);
 }
 
 #destaques h1 {
