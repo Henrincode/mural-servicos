@@ -329,7 +329,7 @@ function cadastrarOferta() {
 
     // Se todos os campos estiverem preenchidos
     const novaOferta = {
-        id: gerarID(),
+        // id: gerarID(),
         criador: logado.id,
         contato: contatoInput.value.trim(),
         tipo: Number(tipoInput.value),
